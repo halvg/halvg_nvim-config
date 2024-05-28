@@ -27,11 +27,11 @@ require('lazy').setup({
   require 'user/kickstart/plugins/which-key',
   require 'user/kickstart/plugins/telescope',
   require 'user/kickstart/plugins/lspconfig',
-  -- require 'user/kickstart/plugins/conform',
+  require 'user/kickstart/plugins/conform', -- Autoformat code
   require 'user/kickstart/plugins/cmp',
   require 'user/kickstart/plugins/tokyonight',
   -- require 'user/kickstart/plugins/todo-comments',
-  -- require 'user/kickstart/plugins/mini',
+  require 'user/kickstart/plugins/mini',
   require 'user/kickstart/plugins/treesitter',
 
   --  Here are some example plugins that I've included in the Kickstart repository.
