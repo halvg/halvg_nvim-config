@@ -56,7 +56,7 @@ local M = {}
 local conformFormat = function()
   require('conform').format { async = true, lsp_fallback = true }
 end
-vim.keymap.set('n', '<leader>f', conformFormat, { desc = '[F]ormat buffer' })
+vim.keymap.set('n', '<leader>f0', conformFormat, { desc = '[F]ormat buffer' })
 -- --------------------------
 -- --------------------------
 
@@ -83,8 +83,9 @@ M.lsp_keymaps = function(bufnr, client)
   map('n', '<leader>gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   map('n', '<leader>gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   map('n', '<leader>gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  map('n', '<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   map('n', '<leader>gt', require('telescope.builtin').lsp_type_definitions, '[G]oto T[y]pe Definition')
+  -- map('n', '<leader>gu', require('telescope.builtin').lsp_XXXX_NOT_YET_EXISTING_XXX, '[G]oto s[U]per Method')
+  map('n', '<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   map('n', '<leader>gy', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   -- Refactors
   map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -119,13 +120,13 @@ M.telescope_keymaps = function()
   vim.keymap.set('n', '<leader>sf', telescope_builtin.find_files, { desc = '[S]earch [F]iles' })
   vim.keymap.set('n', '<leader>sy', telescope_builtin.lsp_dynamic_workspace_symbols, { desc = '[S]earch Workspace S[y]mbols' })
   vim.keymap.set('n', '<leader>sg', telescope_builtin.live_grep, { desc = '[S]earch by [G]rep' })
-  vim.keymap.set('n', '<leader>sif', telescope_builtin.current_buffer_fuzzy_find, { desc = '[S]earch [i]n [F]ile' })
   vim.keymap.set('n', '<leader>sh', telescope_builtin.help_tags, { desc = '[S]earch [H]elp' })
+  vim.keymap.set('n', '<leader>sr', telescope_builtin.oldfiles, { desc = '[S]earch [R]ecent Files' })
+  vim.keymap.set('n', '<leader>sif', telescope_builtin.current_buffer_fuzzy_find, { desc = '[S]earch [i]n [F]ile' })
   vim.keymap.set('n', '<leader>sk', telescope_builtin.keymaps, { desc = '[S]earch [K]eymaps' })
   vim.keymap.set('n', '<leader>sw', telescope_builtin.grep_string, { desc = '[S]earch current [W]ord' })
   vim.keymap.set('n', '<leader>sd', telescope_builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
   vim.keymap.set('n', '<leader>se', telescope_builtin.resume, { desc = '[S]earch R[e]sume' })
-  vim.keymap.set('n', '<leader>sr', telescope_builtin.oldfiles, { desc = '[S]earch [R]ecent Files' })
   vim.keymap.set('n', '<leader>s,', find_config_files, { desc = '[S]earch [N]eovim files' })
   vim.keymap.set('n', '<leader>/', search_text_this_buffer, { desc = '[/] Fuzzily search in current buffer' })
   vim.keymap.set('n', '<leader>bb', telescope_builtin.buffers, { desc = '[ ] Find existing buffers' })
